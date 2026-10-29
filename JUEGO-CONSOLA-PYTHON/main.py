@@ -22,6 +22,10 @@ def main():
     print("Comienza la Aventura!!")
 
     while True:
+
+        if not enemigos:
+            break
+
         enemigo_actual = random.choice(enemigos)
         if enemigo_actual in enemigos_derrotados:
             continue
@@ -35,7 +39,6 @@ def main():
             if accion == "atacar":
                 dano_jugador = jugador.atacar()
                 print(f"Has atacado al {enemigo_actual.nombre} causando {dano_jugador} de daño.")
-                print(f"--> La salud actual del enemigo es: {enemigo_actual.salud} <--")
                 print()
                 resultado_enemigo = enemigo_actual.recibir_dano(dano_jugador)
                 print(resultado_enemigo)
@@ -43,7 +46,6 @@ def main():
                 if enemigo_actual.salud > 0:
                     dano_enemigo = enemigo_actual.atacar()
                     print(f"El {enemigo_actual.nombre} te ha atacado causando {dano_enemigo} de daño.")
-                    print(f"--> Tu salud actual es: {jugador.salud} <--")
                     resultado_jugador = jugador.recibir_dano(dano_enemigo)
                     print(resultado_jugador)
 

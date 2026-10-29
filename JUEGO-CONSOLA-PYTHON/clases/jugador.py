@@ -11,11 +11,11 @@ class Jugador:
     def atacar(self):
         return random.randint(10, 20) * self.nivel
 
-
     def recibir_dano(self, dano):
         self.salud -= dano
-        if (self.salud) <= 0:
-            print(f"{self.nombre} ha sido derrotado.")
+        if self.salud <= 0:
+            return f"{self.nombre} ha sido derrotado."
+        return f"Recibiste {dano} de daño. Tu salud actual es: {self.salud}"
 
     def ganar_experiencia(self, experiencia):
 
